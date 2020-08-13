@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'package:fashion_app/widgets/stack_image_widget.dart';
 
 class CustomStackWidget extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _CustomStackWidgetState extends State<CustomStackWidget> {
   double currentPage = 0.0;
 
   var colors = [
-    Colors.orange,
+    Color(0xFFFFD16C),
     Colors.lightGreen,
     Colors.deepOrange,
     Colors.purple,
@@ -38,7 +39,6 @@ class _CustomStackWidgetState extends State<CustomStackWidget> {
       height: 400,
       width: double.infinity,
       child: Stack(
-//        alignment: Alignment.center,
         children: <Widget>[
           CardsStacked(currentPage: currentPage, colors: colors),
           Positioned.fill(
@@ -71,7 +71,6 @@ class CardsStacked extends StatelessWidget {
           List<Widget> cardList = List();
           var primaryHeight = constructor.maxHeight *0.8;
           var primaryWidth = primaryHeight * 0.75;
-
           for(int i = colors.length -1 ; i>-1;i--){
             var delta = i- currentPage;
             var isOnRight = delta >=0;
@@ -87,6 +86,7 @@ class CardsStacked extends StatelessWidget {
                   ),
                   height: primaryHeight,
                   width: primaryWidth,
+                  child: StackImage(counter: i,),
                 ),
               ),
             );

@@ -74,8 +74,20 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                HomePageTile(
-                  title: 'New',
+                Container(
+                  margin: const EdgeInsets.only(left: 10.0, top: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 4.0),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20.0),
+                      border: Border.all(color: Colors.black)),
+                  child: Text(
+                    'New',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0, color: Colors.white),
+                  ),
                 ),
                 HomePageTile(
                   title: 'Popular',
@@ -85,15 +97,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    child: Icon(
-                      Icons.search,
-                      size: 26.0,
-                    ))
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Icon(
+                    Icons.search,
+                    size: 26.0,
+                  ),
+                ),
               ],
             ),
-            Transform.rotate(
-              angle: 3.142,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 1),
               child: Stack(
                 overflow: Overflow.clip,
                 children: <Widget>[
@@ -135,10 +148,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    ItemTile(),
-                    ItemTile(),
-                    ItemTile(),
-                    ItemTile()
+                    ItemTile(
+                      title: 'Red Summer Dress',
+                      imageUrl: 'assets/images/red-dress.png',
+                    ),
+                    ItemTile(
+                      title: 'Yellow Summer Dress',
+                      imageUrl: 'assets/images/yellow-dress.png',
+                    ),
+                    ItemTile(
+                      title: 'Green Summer Dress',
+                      imageUrl: 'assets/images/green-dress.png',
+                    ),
+                    ItemTile(
+                      title: 'Red Summer Dress',
+                      imageUrl: 'assets/images/red-dress.png',
+                    ),
+                    ItemTile(
+                      title: 'Yellow Summer Dress',
+                      imageUrl: 'assets/images/yellow-dress.png',
+                    ),
                   ],
                 ),
               ),
@@ -149,4 +178,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
