@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'home_screen.dart';
 
-const users = const {'dribble@gmail.com': '12345'};
+const users = const {'dribbble@gmail.com': '12345'};
 
 class LoginScreen extends StatelessWidget {
   Duration get loginTime => Duration(milliseconds: 2250);

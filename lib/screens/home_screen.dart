@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/widgets/custom_stack_widget.dart';
 import 'package:fashion_app/widgets/home_tile_widget.dart';
 import 'package:fashion_app/widgets/item_tile.dart';
+import 'package:fashion_app/screens/Shopping_Cart_Screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,19 +17,66 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient:
+                    LinearGradient(colors: [Colors.blue, Colors.blueAccent]),
+              ),
+              child: DrawerHeader(
+                child: ConstrainedBox(
+                  child: Center(
+                    child: Text(
+                      'FASHION\n APP',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 40.0, color: Colors.white),
+                    ),
+                  ),
+                  constraints: BoxConstraints.loose(Size(
+                      MediaQuery.of(context).size.width * 0.55,
+                      MediaQuery.of(context).size.height * 0.3)),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.people),
+              title: Text('Account Details'),
+              onTap: (){},
+            ),
+            ListTile(
+              leading: Icon(Icons.access_time),
+              title: Text('Order History'),
+              onTap: (){},
+            ),
+            ListTile(
+              leading: Icon(Icons.credit_card),
+              onTap: (){},
+              title: Text('Payment Details'),
+            ),
+            ListTile(
+              leading:Icon(Icons.vpn_key),
+              title: Text('Update Verification Details'),
+              onTap: (){},
+            ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.power_settings_new),
+              title: Text('Log Out'),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.black,
-          size: 30.0,
-        ),
+        backgroundColor: Colors.black,
         title: Hero(
           tag: 'main_text',
           child: Text(
             'Fashion App',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
         ),
         elevation: 0.0,
@@ -36,6 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(right: 10.0),
             child: CircleAvatar(
               backgroundColor: Colors.grey,
+              child: Text('SH', style: TextStyle(fontWeight: FontWeight.bold),),
+              foregroundColor: Colors.black,
             ),
           )
         ],
@@ -48,11 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Color(0xFF202F36),
         unselectedItemColor: Color(0xFF96A7AF),
         onTap: (index) {
-          print(index);
           setState(() {
-            _selectedIndex = index;
+            if (index == 2) {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ShoppingCart()));
+            }
           });
-          print('selected index: $_selectedIndex');
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
@@ -85,8 +137,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: Border.all(color: Colors.black)),
                   child: Text(
                     'New',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0, color: Colors.white),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0,
+                        color: Colors.white),
                   ),
                 ),
                 HomePageTile(
@@ -159,14 +213,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ItemTile(
                       title: 'Green Summer Dress',
                       imageUrl: 'assets/images/green-dress.png',
-                    ),
-                    ItemTile(
-                      title: 'Red Summer Dress',
-                      imageUrl: 'assets/images/red-dress.png',
-                    ),
-                    ItemTile(
-                      title: 'Yellow Summer Dress',
-                      imageUrl: 'assets/images/yellow-dress.png',
                     ),
                   ],
                 ),

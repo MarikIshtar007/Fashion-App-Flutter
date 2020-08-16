@@ -63,10 +63,9 @@ class ItemTile extends StatelessWidget {
               Positioned(
                 top: MediaQuery.of(context).size.height * 0.03,
                 left: MediaQuery.of(context).size.width * 0.15,
-                child: Image.asset(imageUrl, height: MediaQuery.of(context).size.height *0.4,),
+                child: Hero(tag: imageUrl, child: Image.asset(imageUrl, height: MediaQuery.of(context).size.height *0.4,)),
               )
             ]
-
           ),
         ),
       ),
