@@ -1,16 +1,16 @@
-# fashion_app
+# Fashion App with Flutter
 
-A new Flutter application.
+- The UI desgin inspired from https://dribbble.com/shots/13968301-Fashion-App-Full-Concept.
 
-## Getting Started
+- The login form is from a flutter package called "flutter_login". Check it out here : https://pub.dev/packages/flutter_login
 
-This project is a starting point for a Flutter application.
+- I haven't implemented the whole app, just some parts of the design as a practice for UI building. There is no logic in the source-code, just UI-related code.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## App Look
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![Login_Screen_gif](https://github.com/MarikIshtar007/Fashion-App-Flutter/blob/master/repo_img/login.gif)
+
+
+![App_screen_gif](https://github.com/MarikIshtar007/Fashion-App-Flutter/blob/master/repo_img/app.gif)
